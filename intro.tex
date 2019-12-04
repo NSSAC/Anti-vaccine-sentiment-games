@@ -1,0 +1,52 @@
+\section{Introduction}
+
+Given a social network and two competing sentiments about vaccines (pro and anti), in this study, we intend to develop a model to answer the following questions:
+
+\begin{itemize}
+    \item What is the influence of anti-vaccine movements in spreading a certain disease?
+    \item How can we minimize the effects of anti-vaccine movements?
+    \item How can we contain the anti-vaccines sentiment so that it does not spread outside a specific cluster? 
+\end{itemize}
+
+
+\noindent
+\textbf{Background and motivation.} The choice of the problem selection arises from the following facts:
+
+\begin{itemize}
+    \item In recent days anti-vaccine movement is gaining momentum, and with the help of social network, they are forming clusters which can propagate anti-vaccine sentiments in the network.
+
+    \item Despite the effort and widespread coverage of MMR vaccines, there have been massive outbreaks of measles in recent months. There have been 303 cases of measles in March 2019 alone in the US and the number is highest this year since 1992~\cite{cdc_measles}. This shows that the recent anti-vaccine movements can nullify the effectiveness of the vaccination programs.
+    
+    \item About 75\% of the cases in 2019 are linked to outbreaks in New York~\cite{rockland_measles}. This gives rise to the question of whether anti-vaccination movement can be strategically seeded in a network to cause a disease outbreak.
+
+\end{itemize}
+
+From these facts we can infer the following:
+\begin{enumerate}
+    \item Immunization coverage does not necessarily give us an ideal estimate of how likely a disease is going to cause an outbreak.
+    
+    \item Not all under-vaccinated clusters have equal potential to cause a massive disease outbreak. Some of the undervaccinated clusters might have higher interaction with the outside world, causing a greater risk of outbreaks.
+    
+    \item it is important to identify and sort the spatial clusters according to their potential to cause an outbreak.
+\end{enumerate}
+
+
+\noindent
+\textbf{Objectives.} The objectives of this study are:
+\begin{enumerate}
+    \item Modeling and simulating the social network with mixtures of various initial states and rules of spreading for both pro and anti vaccine sentiments
+    
+    \item Determining the effect of network structures of the vaccination sentiments
+\end{enumerate}
+
+
+\noindent
+\textbf{Novelty.} There have been some work on modeling vaccination sentiment~\cite{SHIM2012194}, and also, there have been several applications of competing diffusion models~\cite{prakash2012winner,bharathi2007competitive}. Modeling the spread of epidemics has been done by various diffusion processes on networks, such as the SIS or SIR models~\cite{newman2003structure, grassly2008mathematical}. However, our approach differs from the existing works in:
+
+\begin{itemize}
+    
+    \item Studying the effects of network structure and their relationship with the vaccination sentiment. 
+    
+    \item Studying the game theoretic aspects of vaccination sentiment analysis
+\end{itemize}
+

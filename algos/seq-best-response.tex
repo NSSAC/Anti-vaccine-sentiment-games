@@ -1,0 +1,41 @@
+\Procedure{Sequential-Best-Response}{initial-strategy-vector}
+\State $\mathbf{x}(0) \gets$ initial strategy vector
+\State $|V| \gets$ len($\mathbf{x}$)
+\State $\mathbf{x}(|V|) \gets$ Round1($\mathbf{x}(0)$)
+\State $\mathbf{x}(2|V|) \gets$ Round2($\mathbf{x}(|V|)$)
+\State \textbf{return} $\mathbf{x}(2|V|)$
+\EndProcedure
+\\
+\\
+\Procedure{Round1}{state-vector}
+
+\State $\mathbf{x}(0) \gets$ state-vector
+\State $|V| \gets$ len($\mathbf{x}$)
+\For { $t \gets$ 0 to $|V|-1$}
+    \State $\mathbf{x}(t+1) \gets \mathbf{x}(t) $
+    
+    \For{all $i \in V$ such that $x_i(t) ==  0$}
+		\If{$util ( i, \mathbf{x}_{-i}(t), 1 )  >  util  ( i, \mathbf{x}_{-i}(t), 0 )$}
+			\State $x_{i}(t+1) \gets 1 $
+		\EndIf
+\EndFor
+\EndFor
+\State \textbf{return} $\mathbf{x}(|V|)$
+\EndProcedure
+\\
+\\
+\Procedure{Round2}{state-vector}
+
+\State $\mathbf{x}(0) \gets$ state-vector
+\State $|V| \gets$ len($\mathbf{x}$)
+\For { $t \gets$ 0 to $|V|-1$}
+    \State $\mathbf{x}(t+1) \gets \mathbf{x}(t) $
+    
+    \For{all $i \in V$ such that $x_i(t) ==  1$}
+		\If{$util ( i, \mathbf{x}_{-i}(t), 0 )  >  util  ( i, \mathbf{x}_{-i}(t), 1 )$}
+			\State $x_{i}(t+1) \gets 0 $
+		\EndIf
+\EndFor
+\EndFor
+\State \textbf{return} $\mathbf{x}(|V|)$
+\EndProcedure

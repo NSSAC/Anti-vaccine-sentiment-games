@@ -1,0 +1,40 @@
+\section{The vaccine sentiment game}
+
+% Questions to explore
+% \begin{itemize}
+% \item 
+% When is a vector $\mathbf{x}$ a NE? 
+% \begin{itemize}
+%     \item When $\alpha=\beta=1$, for every strong community $S$, the state vector $\mathbf{x}$ with $x_i=0$ for $i\in S$ is a NE
+%     \item 
+%     What are the conditions for more general $\alpha, \beta$?
+% \end{itemize}
+% \end{itemize}
+
+
+% \noindent
+% \textbf{Vaccine sentiment game.}
+We assume that people generally tend to be in the same state as most of their neighbors. So, the utility for node $i$ is defined as a linear combination of number of similar state nodes in $N(i)$ and  number of different state nodes in $N(i)$).
+\\
+\\
+Formally, given two parameters $\alpha, \beta \in \mathbb{R}$ and $\alpha, \beta \geq  1$ , we define utility for a node $i$ in the following manner:
+\begin{equation}
+\label{eq:util_normal}
+\util(i, \mathbf{x})=\alpha|N(i, \mathbf{x}, x_i)| - \beta|N(i, \mathbf{x}, 1-x_i)|
+\end{equation}
+
+\textbf{Rule.} A node $i$ will switch its state from $x_i$ to $(1-x_i)$ if and only if its utility gets better by switching.
+
+\begin{align}
+    x_i(t+1) &= 1-x(t)\\
+    \Longleftrightarrow \util(i, \mathbf{x(t)}, 1-x_i) &> \util(i, \mathbf{x(t)}, x_i)
+\end{align}
+\\
+\\
+Otherwise, node $i$ will stay in the same state $x_i$.
+\begin{align}
+    x_i(t+1) &= x(t)\\
+    \Longleftrightarrow \util(i, \mathbf{x(t)}, x_i) & \geq \util(i, \mathbf{x(t)}, 1-x_i)
+\end{align}
+
+\endinput

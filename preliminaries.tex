@@ -1,0 +1,91 @@
+\section{Preliminaries}
+
+Let the undirected unweighted graph $G=(V, E)$ denote a contact network, where $V$ is the set of nodes that represent people in the network and $E$ is the set of edges where each edge represents the connection between two people. Let, $n=|V|$ be the number of nodes in the network. Let $N(i)$ denote the set of neighbors of node $i\in V$.
+\\
+\\
+Each node $i\in V$ has state $x_i(t)\in\{0, 1\}$ at time $t$, where 0 and 1 indicate pro- and anti-vaccine sentiments respectively.
+\\
+\\
+Let $\mathbf{x(t)}\in\{0, 1\}^n$ denote a strategy vector at time $t$. Let $N(i, \mathbf{x}, x_i)$ be the $i^{th}$ node's neighbors who are in state $x_i$. So,  $N(i, \mathbf{x}, 0)$  denote the set of neighbors of node $i$ who are pro-vaccine and $N(i, \mathbf{x}, 1)$  denote the set of neighbors of node $i$ who are anti-vaccine, given a strategy vector $\mathbf{x}$.
+\\
+\\
+\noindent
+\textbf{Herd Immunity.} If more than a certain fraction ($\gamma$) of nodes in the entire network are vaccinated, every node gets benefited. This is known as herd immunity.
+\\
+\\
+\noindent
+\textbf{Vaccine sentiment game with herd immunity benefit.}
+% Let $\gamma$ be an additional parameter, which denotes the threshold for herd-immunity, i.e., if the number of nodes vaccinated nodes exceeds $\gamma n$, then every node gets benefit $\delta$. However, if the number of vaccinated nodes is less than $\gamma n$, no one gets any benefit.
+% We formalize the utility functions in the following form
+% \[
+% \util(i, \mathbf{x})=
+% \begin{cases}
+% \alpha|N(i, \mathbf{x}, x_i)| - \beta|N(i, \mathbf{x}, 1-x_i)| + \delta, \mbox{ if $\sum_i x_i < (1-\gamma)n$}\\
+% \alpha|N(i, \mathbf{x}, x_i)| - \beta|N(i, \mathbf{x}, 1-x_i)|, \mbox{ otherwise}\\
+% \end{cases}
+% \]
+% \noindent
+% \textbf{added by anil.}
+We have parameters $\gamma, \delta, C$. $\gamma$ is the threshold for herd-immunity, i.e., if the number of nodes vaccinated nodes exceeds $\gamma n$, then every node gets benefit $\delta$. $C$ is the benefit a node gets by vaccination.
+We formalize the utility functions in the following form
+\[
+\util(i, \mathbf{x})=
+\begin{cases}
+\alpha|N(i, \mathbf{x}, x_i)| - \beta|N(i, \mathbf{x}, 1-x_i)| + \delta, \mbox{ if $x_i=1$ and $\sum_i x_i < (1-\gamma)n$}\\
+\alpha|N(i, \mathbf{x}, x_i)| - \beta|N(i, \mathbf{x}, 1-x_i)|, \mbox{ if $x_i=1$ and $\sum_i x_i \geq (1-\gamma)n$}\\
+\alpha|N(i, \mathbf{x}, x_i)| - \beta|N(i, \mathbf{x}, 1-x_i)| + C, \mbox{ if $x_i=0$}\\
+\end{cases}
+\]
+
+\noindent
+\textbf{Strong Community.} We say $S\subset V$ is a \emph{strong community} if it satisfies the following property:
+\\
+for each node $i\in S$, $|N(i)\cap S| \geq |N(i)-S|$, and
+\\
+for each $i\not\in S$, we have $|N(i)\cap S| \leq |N(i)-S|$.
+\\
+Intuitively, it means that every node in a strong community has at least as many nodes inside the strong community as outside.
+\\
+\\
+\noindent
+\textbf{Maximal Strong Community.} $S$ is a maximal strong community if: for each $v$, $deg_S(v)\geq deg_{V-S}(v)$
+\\
+We say $S\subset V$ is a \emph{Maximal Strong Community} if and only if it satisfies the following property:
+\\
+for each node $i\in S$, $|N(i)\cap S| \geq |N(i)-S|$, and
+\\
+for each $i\not\in S$, we have $|N(i)\cap S| < |N(i)-S|$.
+\\
+\\
+\noindent
+\textbf{Nash equilibrium (NE).}
+We say $\mathbf{x}$ is a NE if no node $i$ is able to improve its utility by switching its state.
+
+
+
+\begin{table}[H]
+\centering
+\caption{Summary of Notations}
+\label{table:notations}
+\begingroup
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.35}
+\begin{tabular}{|c|l|}
+\hline
+Symbol          & Description                                 \\ \hline
+$V$             & Set of vertices \\ \hline
+$E$             & Set of edges\\ \hline
+$n$   & = $|V|$, Number of nodes \\ \hline
+$N(i)$       & Set of neighbors of node $i$ \\ \hline
+$x_i(t)$       & State of node i at time $t$, either 0 (Pro-vaccine) or 1 (Anti-vaccine) \\ \hline
+$\mathbf{x}(t)$     & Strategy vector at time $t$\\ \hline
+$N(i, \mathbf{x}, x_i)$     & Set of neighbors of node i at time with state $x_i$\\ \hline
+$\gamma$ & Herd immunity parameter, if $\sum_i x_i < (1- \gamma) n$ then Herd immunity exists\\ \hline
+$\delta$         & Herd immunity benefit\\ \hline
+$\alpha$         & Similarity benefit parameter\\ \hline
+$\beta$   & Dissimilarity loss parameter\\ \hline
+$C$      & Vaccination utility parameter\\ \hline
+$N_s(i, \mathbf{x}, x_i)$      & Set of Node $i$'s neighbors in set s who are in state $x_i$\\ \hline
+\end{tabular}
+\endgroup
+\end{table}

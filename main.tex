@@ -1,0 +1,80 @@
+\documentclass[11pt]{article}
+\usepackage{fullpage} %[cm]
+\usepackage{lmodern} % enhanced version of computer modern
+\usepackage[T1]{fontenc} % for hyphenated characters
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{microtype}
+\usepackage{enumerate}
+\usepackage{float}
+\usepackage{ctable} % provides toprule, bottomrule, midrule
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{algorithmicx}
+%\usepackage[ruled,linesnumbered]{algorithm2e}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage{subfig}
+\DeclareCaptionType{copyrightbox}
+\usepackage{color}
+\newcommand{\expect}{\mathrm{Exp}}
+\newcommand{\hide}[1]{}
+\newtheorem{theorem}{Theorem} % {\bfseries}{\itshape}
+\newtheorem{lemma}{Lemma}{\bfseries}{\itshape}
+%\newdef{claim}{Claim}
+%
+%\theoremstyle{definition}
+%\newtheorem{definition}[lemma]{Definition} % {\bfseries}{\itshape}
+%
+%\theoremstyle{remark}
+\newtheorem{claim}[lemma]{Claim} % {\bfseries}{\itshape}
+\newtheorem{observation}[lemma]{Observation} % {\bfseries}{\itshape}
+%
+\DeclareMathOperator*{\argmin}{arg\,min}
+\newcommand{\opt}{\mathrm{OPT}}
+\newcommand{\eopt}{E_{\mathrm{OPT}}}
+\newcommand{\edeg}{e_{\mathrm{deg}}}
+\newcommand{\prob}{\textsc{ACI}}
+\newcommand{\degr}{\mathrm{d}}
+\newcommand{\Vol}{\mathrm{Vol}}
+\newcommand{\wmax}{w_{\max}}
+\newcommand{\eps}{\epsilon}
+\newcommand{\diff}{\textsc{diff}}
+\newcommand{\U}{\mathcal{U}}
+\newcommand{\C}{\mathcal{C}}
+\newcommand{\Cw}{\mathcal{C}_w}
+\newcommand{\Cwp}{\mathcal{C}_{w'}}
+\newcommand{\TC}{\mathcal{T}_{\C}}
+\newcommand{\commC}{\texttt{common}(\mathcal{C})}
+\newcommand{\diffC}{\texttt{diff}(\mathcal{C})}
+\newcommand{\diffw}{\texttt{diff}(w, w')}
+\newcommand{\diffcost}{\texttt{diffcost}}
+\newcommand{\diffwcost}{\texttt{diffcost}(w, w')}
+\newcommand{\cut}{\texttt{cut}}
+\newcommand{\ceil}[1]{\left\lceil #1 \right\rceil}
+\DeclareMathOperator*{\nodes}{nodes}
+\DeclareMathOperator*{\walks}{walks}
+\DeclareMathOperator*{\ct}{count}
+\def\algo{\textsc{greedy}}
+\def\util{\texttt{util}}
+\def\game{\textsc{VaccSenGame}}
+
+\title{Persistence of anti-vaccine sentiment through strategic interactions}
+\author{A S M Ahsan-Ul Haque}
+\date{\today}
+%
+\begin{document}
+\maketitle
+%
+
+\input{intro.tex}
+\input{preliminaries.tex}
+\input{vax_game.tex}
+\input{structure_nash.tex}
+\input{experiments.tex}
+\input{conclusion.tex}
+
+\bibliographystyle{IEEEtran}
+\bibliography{ref}
+\end{document}
+
